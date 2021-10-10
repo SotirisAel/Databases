@@ -79,14 +79,14 @@ int main(){
 
 	/*Print everything initially*/
 	for(int j=0;j<i-1;j++){
-		cout<<processblock->back();
+		cout<<"    "<<processblock->back();
 		if(j==0)
-			printf("%30d%24s\n",processblock->return_time(),running);
+			printf("%26d%24s\n",processblock->return_time(),running);
 		else
 			if (j<9)
-				printf("%30d%22s\n",processblock->return_time(),ready);
+				printf("%26d%22s\n",processblock->return_time(),ready);
 			else
-				printf("%29d%22s\n",processblock->return_time(),ready);
+				printf("%25d%22s\n",processblock->return_time(),ready);
 		processblock->advance();
 
 	}

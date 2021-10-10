@@ -56,7 +56,7 @@ void CircleList::remove() { // remove node after cursor
 	RRNode* old = cursor->next; // the node being removed
 	int waiting_time;
 	waiting_time=total_time-(old->duration);	//calculate total time of process
-	cout<<old->elem;printf("%30d%27s%12d\n", 0, terminated, waiting_time);	//say which process was terminated
+	cout<<"    "<<old->elem;printf("%26d%27s%12d\n", 0, terminated, waiting_time);	//say which process was terminated
 	if (old == cursor){ // if its the last process
 		cursor = NULL; // list is now empty
 		cout<<"\nAll processes have finished! Total run-time: "<<total_time<<"\n\n";	//Print end of program and terminate program
@@ -69,7 +69,6 @@ void CircleList::remove() { // remove node after cursor
 }
 
 void CircleList::processing(){
-
 	/*Calculations for first time*/
 	if(firsttimerun){
 		/*Check if first Process is bigger than time quantum*/
@@ -77,8 +76,8 @@ void CircleList::processing(){
 			cursor->rem_time-=time_slot;
 			total_time+=time_slot;
 			firsttimerun=0;
-			cout<<cursor->elem;
-			printf("%30d%24s\n",cursor->rem_time,running);
+			cout<<"    "<<cursor->elem;
+			printf("%26d%24s\n",cursor->rem_time,running);
 		}
 		/*Else loop to last node to delete next*/
 		else{
@@ -105,16 +104,18 @@ void CircleList::processing(){
 			/*Check if next is also smaller than quantum, if so repeat, else exit loop*/
 			if(cursor->next->rem_time<=time_slot)
 				repeat=1;
-			else
+			else{
 				repeat=0;
+
+			}
 		}
 	}
 	/*Else, calculate normally*/
-	else {
+	if(true){
 		cursor->next->rem_time-=time_slot;
 		total_time+=time_slot;
-		cout<<cursor->next->elem;			//print next process id
-		printf("%30d%24s\n",cursor->next->rem_time,running);	//print next process time remaining, and state
+		cout<<"    "<<cursor->next->elem;			//print next process id
+		printf("%26d%24s\n",cursor->next->rem_time,running);	//print next process time remaining, and state
 
 	}
 }
