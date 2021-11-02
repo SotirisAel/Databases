@@ -15,7 +15,7 @@ class NodeSequence : public NodeList {
     Iterator atIndex(int i) const;		// get position from index
     int indexOf(const Iterator& p) const;	// get index from position
     void selectionSort();
-    //void erase(const Iterator& p, const Iterator q);
+    void nserase(const Iterator& p, const Iterator q);
 };
 
 

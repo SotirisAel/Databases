@@ -22,36 +22,38 @@ int NodeSequence::indexOf(const Iterator& p) const {
 }
 
 void NodeSequence::selectionSort(){
+    Iterator temp = begin();
+    while (temp!=(--end())) {
 
-	//Get first element
-    auto temp = begin();
+    	//Initialize iterators
+    	Iterator min = temp;
+    	Iterator i = temp;
+    	++i;
 
-    cout<<"Value: "<<*temp<<endl;
-    // Traverse the List
-    while (temp!=end()) {
-    	auto min = temp;		//Assign first as minimum
-    	auto i = ++temp;	//Assign i to next
-    	cout<<"Asd2"<<endl;
-        // Traverse the unsorted sublist
+    	//Search loop
         while (i!=end()) {
-            if (*min > *i)	//If i is smaller
-                min = i;				//make it the new min
-
+            if (*min > *i)
+                min = i;
             ++i;
         }
-        cout<<"Min elem: "<<*min<<endl;
-        // Check if our item isn't the smallest
-        if(*temp!=*min){
-        	//Swap Data
-        	auto x = *temp;			//temp x
-        	*temp = *min;		//Swap item with minimum found
+
+        //Value replacement
+        if(*temp!=*min){	//To prevent unnecessary changes if item is same
+        	int x = *temp;
+        	*temp = *min;
         	*min = x;
         }
-        ++temp;			//move to next item
+        ++temp;				//advance iterator
     }
 }
 
-/*void NodeSequence::erase(const Iterator& p, const Iterator q){
+void NodeSequence::nserase(const Iterator& p, const Iterator q){
+	Iterator temp= p;
+	while(temp!=q){
+		erase(temp);
+		++temp;
+	}
 
-	erase(p);
-}*/
+
+}
+

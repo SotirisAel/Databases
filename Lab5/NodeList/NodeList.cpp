@@ -63,7 +63,7 @@ NodeList::Iterator::Iterator(Node* u)		// constructor from Node*
       { v = u; }
 
 NodeList::Iterator::Iterator()		// constructor that does nothing
-      {}
+      {  }
 
 Elem& NodeList::Iterator::operator*()		// reference to the element
       { return v->elem; }
@@ -93,19 +93,24 @@ void NodeList::printAllElements() {
 
 int main() {
 	NodeList nl;
-	NodeSequence nS;
+	NodeSequence ns;
 
-	nl.insertFront(5);
-	nl.insertFront(7);
-	nl.insertFront(3);
-	nl.insertFront(9);
-	nl.insertFront(12);
-	nl.insertFront(1);
-	nl.printAllElements();
+	ns.insertFront(5);
+	ns.insertFront(7);
+	ns.insertFront(3);
+	ns.insertFront(9);
+	ns.insertFront(12);
+	//nl.insertFront(1);
+	ns.printAllElements();
 	cout<<endl;
-	nS.selectionSort();
+	ns.selectionSort();
 
-	nl.printAllElements();
+	cout<<"Sorted list using selection sort: "<<endl;
+	ns.printAllElements();
+
+	ns.nserase(ns.atIndex(1), ns.atIndex(3));
+	cout<<endl<<"Deleting items 2-4 (not including 4):"<<endl;
+	ns.printAllElements();
 	//system("pause");
 	return 0;
 }
