@@ -100,18 +100,20 @@ int main() {
 	ns.insertFront(3);
 	ns.insertFront(9);
 	ns.insertFront(12);
-	//nl.insertFront(1);
 	ns.printAllElements();
+
 	cout<<endl;
 	ns.selectionSort();
 
 	cout<<"Sorted list using selection sort: "<<endl;
 	ns.printAllElements();
 
-	ns.nserase(ns.atIndex(1), ns.atIndex(3));
 	cout<<endl<<"Deleting items 2-4 (not including 4):"<<endl;
+	ns.nserase(ns.atIndex(1), ns.atIndex(3));
 	ns.printAllElements();
 
+	cout<<endl;
 	system("pause");
+
 	return 0;
 }
