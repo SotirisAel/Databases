@@ -111,6 +111,7 @@ int main() {
 	ns.nserase(ns.atIndex(1), ns.atIndex(3));
 	cout<<endl<<"Deleting items 2-4 (not including 4):"<<endl;
 	ns.printAllElements();
-	//system("pause");
+
+	system("pause");
 	return 0;
 }
